@@ -1,0 +1,17 @@
+.form {
+  padding: 1rem;
+  &__prompt {
+    text-align: left;
+    padding: 1rem 0;
+  }
+  &__contents {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
+}
