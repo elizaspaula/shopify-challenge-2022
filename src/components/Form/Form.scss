@@ -1,17 +1,95 @@
+@use "../../styles/colors" as *;
+@use "../../styles/typography" as *;
+@use "../../styles/mixins" as *;
 .form {
+  background-color: $primary-color-background;
   padding: 1rem;
-  &__prompt {
+
+  &__title {
+    margin-bottom: 3rem;
+  }
+
+  &__subtitle {
     text-align: left;
-    padding: 1rem 0;
+    padding-bottom: 1rem;
   }
   &__contents {
     display: flex;
     flex-direction: column;
+    @include card;
   }
 
-  &__button {
-    display: flex;
-    justify-content: flex-end;
+  &__submit {
+    @include flexed(row, flex-end, center);
     padding-top: 1rem;
+  }
+
+  &__message {
+    border-style: none;
+    width: 85%;
+    padding: 0 0.5rem;
+
+    &::-webkit-input-placeholder {
+      color: rgba(92, 102, 126, 1);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__field {
+    align-content: center;
+    align-items: center;
+    background-color: $secondary-color-background;
+    border: 1px solid $secondary-color-border;
+    border-radius: 3px;
+    height: 3rem;
+    @include flexed(row-reverse, center, center);
+    transition: 0.5s ease-in-out;
+    line-height: 2.4rem;
+
+    &:focus {
+      border: 0.0625rem solid $primary-color-btn;
+    }
+  }
+
+  &__btn {
+    @include btn;
+  }
+
+  &__icon {
+    width: 1.25rem;
+  }
+
+  &__responses {
+    margin-top: 2rem;
+    @include card;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-top: 1rem;
+  }
+
+  &__header,
+  &__response {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: justify;
+    gap: 0.5rem;
+  }
+
+  &__subheader {
+    font-weight: 500;
+  }
+
+  &__text {
+    &:first-letter {
+      text-transform: capitalize;
+    }
   }
 }
